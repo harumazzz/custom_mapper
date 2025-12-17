@@ -1,3 +1,9 @@
+## 0.0.5
+
+### Score Fixes
+
+- **Fix version conflict**: Migrate with future versions.
+
 ## 0.0.4
 
 ### Score Fixes
