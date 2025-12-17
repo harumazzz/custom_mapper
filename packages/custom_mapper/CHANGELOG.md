@@ -1,3 +1,9 @@
+## 0.0.3
+
+### Score Fixes
+
+- **Fix errors**: Fixed errors relate to example
+
 ## 0.0.2
 
 ### Bug Fixes
