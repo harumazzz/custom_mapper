@@ -1,0 +1,16 @@
+name: example
+description: Example project for custom_mapper
+
+environment:
+  sdk: ^3.10.1
+
+dependencies:
+  custom_mapper_annotation:
+    path: ../packages/custom_mapper_annotation
+  freezed_annotation: ^2.4.1
+
+dev_dependencies:
+  custom_mapper:
+    path: ../packages/custom_mapper
+  build_runner: ^2.4.13
+  freezed: 2.4.7
