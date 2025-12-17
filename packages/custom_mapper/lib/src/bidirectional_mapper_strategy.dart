@@ -25,7 +25,7 @@ class BidirectionalMapperStrategy implements MapperStrategy {
 
   String _generateToDomain(MapperContext context) {
     final domainElement = _parameterResolver.findClassInLibrary(
-      context.dtoElement.library,
+      context.dtoElement.library2,
       context.domainName,
     );
 
@@ -57,7 +57,7 @@ class BidirectionalMapperStrategy implements MapperStrategy {
 
   String _generateToData(MapperContext context) {
     final domainElement = _parameterResolver.findClassInLibrary(
-      context.dtoElement.library,
+      context.dtoElement.library2,
       context.domainName,
     );
 

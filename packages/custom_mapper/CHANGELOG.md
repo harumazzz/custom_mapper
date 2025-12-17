@@ -1,3 +1,9 @@
+## 0.0.4
+
+### Score Fixes
+
+- **Fix errors**: Migrate and fixes errors.
+
 ## 0.0.3
 
 ### Score Fixes

@@ -1,26 +1,31 @@
-import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/element2.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:collection/collection.dart';
 
 class ParameterTypeResolver {
-  Map<String, DartType> getParameterTypes(ClassElement element) {
+  Map<String, DartType> getParameterTypes(ClassElement2 element) {
     final paramTypes = <String, DartType>{};
-    final constructor = element.constructors.firstOrNull;
+    final constructor = element.constructors2.firstOrNull;
 
     if (constructor == null) {
       return paramTypes;
     }
 
-    constructor.parameters
+    constructor.formalParameters
         .where((param) => param.isNamed || param.isRequiredPositional)
-        .forEach((param) => paramTypes[param.name] = param.type);
+        .forEach((param) {
+          final paramName = param.name3;
+          if (paramName != null) {
+            paramTypes[paramName] = param.type;
+          }
+        });
 
     return paramTypes;
   }
 
-  ClassElement? findClassInLibrary(LibraryElement library, String className) {
-    return library.topLevelElements.whereType<ClassElement>().firstWhereOrNull(
-      (element) => element.name == className,
-    );
+  ClassElement2? findClassInLibrary(LibraryElement2 library, String className) {
+    final namespace = library.exportNamespace;
+    final element = namespace.get2(className);
+    return element is ClassElement2 ? element : null;
   }
 }

@@ -1,4 +1,4 @@
-import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/element2.dart';
 import 'package:analyzer/dart/element/type.dart';
 
 class IterableInfo {
@@ -34,9 +34,10 @@ class IterableTransformationHandler {
   IterableInfo? getIterableInfo(DartType type) {
     if (type is! InterfaceType) return null;
 
-    final element = type.element;
-    final className = element.name;
-    if (className == 'Map' ||
+    final element = type.element3;
+    final className = element.name3;
+    if (className == null ||
+        className == 'Map' ||
         !_isIterableType(className, element) ||
         type.typeArguments.isEmpty) {
       return null;
@@ -50,9 +51,11 @@ class IterableTransformationHandler {
 
   MapInfo? getMapInfo(DartType type) {
     if (type is! InterfaceType) return null;
-    final element = type.element;
-    final className = element.name;
-    if (className != 'Map' || type.typeArguments.length < 2) {
+    final element = type.element3;
+    final className = element.name3;
+    if (className == null ||
+        className != 'Map' ||
+        type.typeArguments.length < 2) {
       return null;
     }
     return MapInfo(valueType: type.typeArguments[1]);
@@ -63,25 +66,24 @@ class IterableTransformationHandler {
 
     if (type is! InterfaceType) return false;
 
-    final element = type.element;
-    final className = element.name;
-    if (_primitiveTypes.contains(className) ||
+    final element = type.element3;
+    final className = element.name3;
+    if (className == null ||
+        _primitiveTypes.contains(className) ||
         className == 'Map' ||
         _isIterableType(className, element)) {
       return false;
     }
-    return element is ClassElement;
+    return element is ClassElement2;
   }
 
-  bool _isIterableType(String className, Element element) {
+  bool _isIterableType(String className, Element2 element) {
     if (_iterableTypes.contains(className)) return true;
 
-    if (element is! InterfaceElement) return false;
+    if (element is! InterfaceElement2) return false;
 
     return element.interfaces.any(
-      (interface) => _iterableTypes.contains(
-        interface.getDisplayString(withNullability: false),
-      ),
+      (interface) => _iterableTypes.contains(interface.getDisplayString()),
     );
   }
 

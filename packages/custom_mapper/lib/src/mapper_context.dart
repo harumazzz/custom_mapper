@@ -1,4 +1,4 @@
-import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/element2.dart';
 
 class FieldAnnotationMetadata {
   final bool isIgnored;
@@ -8,7 +8,7 @@ class FieldAnnotationMetadata {
 }
 
 class MapperContext {
-  final ClassElement dtoElement;
+  final ClassElement2 dtoElement;
   final String dtoName;
   final String domainName;
   final List<String> fields;

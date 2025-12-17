@@ -1,6 +1,7 @@
 name: custom_mapper_annotation
 description: "Annotations for custom_mapper code generation package."
-version: 0.0.2
+version: 0.0.3
+resolution: workspace
 homepage: https://github.com/harumazzz/custom_mapper
 repository: https://github.com/harumazzz/custom_mapper
 issue_tracker: https://github.com/harumazzz/custom_mapper/issues
