@@ -1,3 +1,9 @@
+## 0.0.6
+
+### Score Fixes
+
+- **Fix version errors**: Revert changes in 0.0.5.
+
 ## 0.0.5
 
 ### Score Fixes
