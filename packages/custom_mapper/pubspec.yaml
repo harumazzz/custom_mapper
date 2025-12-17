@@ -1,6 +1,6 @@
 name: custom_mapper
 description: "A powerful code generation package for creating type-safe mappers between domain objects and data transfer objects (DTOs) in Dart and Flutter applications."
-version: 0.0.3
+version: 0.0.4
 resolution: workspace
 homepage: https://github.com/harumazzz/custom_mapper
 repository: https://github.com/harumazzz/custom_mapper
