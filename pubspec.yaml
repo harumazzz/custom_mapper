@@ -6,7 +6,6 @@ homepage:
 environment:
   sdk: ">=3.8.0 <4.0.0"
 
-# This is a workspace pubspec that orchestrates the two packages
 workspace:
   - packages/custom_mapper_annotation
   - packages/custom_mapper

@@ -1,3 +1,13 @@
+## 0.0.2
+
+### Bug Fixes
+
+- **Platform Support**: Added explicit platform support declarations for all platforms (Android, iOS, Windows, macOS, Linux, Web)
+- **Dependencies**: Updated dependency constraints to support newer versions:
+  - `analyzer`: Now supports up to `<10.0.0`
+  - `build`: Now supports up to `<5.0.0`
+  - `source_gen`: Now supports up to `<5.0.0`
+
 ## 0.0.1
 
 ### Initial Release
@@ -19,7 +29,7 @@ This package generates type-safe mapping code for classes annotated with `@Mappe
 #### 📦 Usage
 
 1. Add `custom_mapper_annotation` to dependencies
-2. Add `custom_mapper` and `build_runner` to dev_dependencies  
+2. Add `custom_mapper` and `build_runner` to dev_dependencies
 3. Annotate your classes with `@Mapper`
 4. Run `dart run build_runner build`
 

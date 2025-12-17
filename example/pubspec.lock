@@ -148,16 +148,18 @@ packages:
   custom_mapper:
     dependency: "direct dev"
     description:
-      path: "../packages/custom_mapper"
-      relative: true
-    source: path
+      name: custom_mapper
+      sha256: f16fe2247ed8a9a86741aaeb176a9997183976b7b7d3b7f0f3db860ed27aed86
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.1"
   custom_mapper_annotation:
     dependency: "direct main"
     description:
-      path: "../packages/custom_mapper_annotation"
-      relative: true
-    source: path
+      name: custom_mapper_annotation
+      sha256: ba772fc80d4351f35cac56bac7b501be942c8c6a2734670d2b76f002f466a897
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.1"
   dart_style:
     dependency: transitive
