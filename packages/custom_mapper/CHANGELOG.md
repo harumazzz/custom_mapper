@@ -1,3 +1,11 @@
+## 0.0.7
+
+### Enhancements
+
+- **Enhanced domain class resolution**: Domain classes can now be imported from other files
+- **Fixed cross-file mapping**: Resolves empty extension generation when domain class is in a separate file
+- **Improved library search**: Enhanced `findClassInLibrary` to search through imported libraries
+
 ## 0.0.6
 
 ### Score Fixes

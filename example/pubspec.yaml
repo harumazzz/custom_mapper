@@ -8,9 +8,11 @@ dependencies:
   custom_mapper_annotation:
     path: ../packages/custom_mapper_annotation
   freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   custom_mapper:
     path: ../packages/custom_mapper
   build_runner: ^2.4.13
   freezed: ^3.2.3
+  json_serializable: ^6.11.2

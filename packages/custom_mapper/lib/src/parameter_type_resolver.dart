@@ -26,6 +26,22 @@ class ParameterTypeResolver {
   ClassElement2? findClassInLibrary(LibraryElement2 library, String className) {
     final namespace = library.exportNamespace;
     final element = namespace.get2(className);
-    return element is ClassElement2 ? element : null;
+    if (element is ClassElement2) {
+      return element;
+    }
+    for (final fragment in library.fragments) {
+      for (final import in fragment.libraryImports2) {
+        final importedLibrary = import.importedLibrary2;
+        if (importedLibrary != null) {
+          final importedNamespace = importedLibrary.exportNamespace;
+          final importedElement = importedNamespace.get2(className);
+          if (importedElement is ClassElement2) {
+            return importedElement;
+          }
+        }
+      }
+    }
+
+    return null;
   }
 }
