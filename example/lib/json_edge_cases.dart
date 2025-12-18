@@ -6,7 +6,7 @@ import 'json_complex_cross_file.dart';
 
 part 'json_edge_cases.freezed.dart';
 part 'json_edge_cases.g.dart';
-part 'json_edge_cases.map.dart';
+part 'json_edge_cases.mapper.dart';
 
 /// Edge case 1: Circular references between files with JSON annotations
 @freezed

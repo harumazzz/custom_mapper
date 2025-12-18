@@ -11,13 +11,13 @@ import 'src/mapper_generator.dart';
 /// Creates a builder for generating mapping code.
 ///
 /// This function is called by build_runner to create a [PartBuilder]
-/// that generates `.map.dart` files containing the mapping methods
+/// that generates `.mapper.dart` files containing the mapping methods
 /// for classes annotated with `@Mapper`.
 ///
 /// The [options] parameter contains build configuration options
 /// passed from build.yaml or build_runner.
 ///
 /// Returns a [PartBuilder] configured to use [MapperGenerator]
-/// and generate files with the `.map.dart` extension.
+/// and generate files with the `.mapper.dart` extension.
 Builder mapperBuilder(BuilderOptions options) =>
-    PartBuilder([MapperGenerator()], '.map.dart');
+    PartBuilder([MapperGenerator()], '.mapper.dart');

@@ -2,7 +2,7 @@ builders:
   mapperBuilder:
     import: "package:custom_mapper/builder.dart"
     builder_factories: ["mapperBuilder"]
-    build_extensions: { ".dart": [".map.dart"] }
+    build_extensions: { ".dart": [".mapper.dart"] }
     auto_apply: dependents
     build_to: source
     applies_builders: ["source_gen|combining_builder"]

@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'nested_complex.freezed.dart';
-part 'nested_complex.map.dart';
+part 'nested_complex.mapper.dart';
 
 @freezed
 sealed class Address with _$Address {

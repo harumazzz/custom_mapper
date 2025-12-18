@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'edge_cases.freezed.dart';
-part 'edge_cases.map.dart';
+part 'edge_cases.mapper.dart';
 
 @freezed
 sealed class ReadOnlyModel with _$ReadOnlyModel {

@@ -4,7 +4,7 @@ import 'json_models.dart'; // Import from different file
 
 part 'json_cross_file_test.freezed.dart';
 part 'json_cross_file_test.g.dart';
-part 'json_cross_file_test.map.dart';
+part 'json_cross_file_test.mapper.dart';
 
 /// Test case 1: Cross-file mapping with JSON annotations
 @freezed

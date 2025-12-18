@@ -35,6 +35,10 @@ class MapperGenerator extends GeneratorForAnnotation<Mapper> {
         element: element,
       );
     }
+    final collectionSet = _extractCollectionTypes(
+      annotation.read('collection'),
+    );
+
     final context = MapperContext(
       dtoElement: element,
       dtoName: element.name3!,
@@ -45,6 +49,7 @@ class MapperGenerator extends GeneratorForAnnotation<Mapper> {
       fieldAnnotations: fieldAnnotations,
       enableToDomain: annotation.read('toDomain').boolValue,
       enableToData: annotation.read('toData').boolValue,
+      collections: collectionSet,
     );
 
     final buffer = StringBuffer();
@@ -57,6 +62,7 @@ class MapperGenerator extends GeneratorForAnnotation<Mapper> {
     dtoBuffer.write(result.dtoExtension);
     domainBuffer.write(result.domainExtension);
 
+    // Generate regular extensions
     buffer.writeln(
       'extension ${context.dtoName}Mapper on ${context.dtoName} {',
     );
@@ -71,6 +77,7 @@ class MapperGenerator extends GeneratorForAnnotation<Mapper> {
       buffer.writeln('}');
       buffer.writeln();
     }
+    _generateCollectionExtensions(buffer, context, result);
 
     return buffer.toString();
   }
@@ -175,5 +182,110 @@ class MapperGenerator extends GeneratorForAnnotation<Mapper> {
     if (dartType == 'String') return value.toStringValue();
 
     return value.toString();
+  }
+
+  Set<MapperCollection> _extractCollectionTypes(
+    ConstantReader collectionReader,
+  ) {
+    final collections = <MapperCollection>{};
+
+    if (collectionReader.isNull) {
+      return collections;
+    }
+
+    try {
+      final setConstant = collectionReader.setValue;
+      for (final element in setConstant) {
+        final enumName = element.getField('_name')?.toStringValue();
+        switch (enumName) {
+          case 'list':
+            collections.add(MapperCollection.list);
+            break;
+          case 'set':
+            collections.add(MapperCollection.set);
+            break;
+          case 'iterable':
+            collections.add(MapperCollection.iterable);
+            break;
+        }
+      }
+    } catch (e) {
+      return collections;
+    }
+    return collections;
+  }
+
+  void _generateCollectionExtensions(
+    StringBuffer buffer,
+    MapperContext context,
+    dynamic result,
+  ) {
+    for (final collection in context.collections) {
+      final collectionTypeName = _getCollectionTypeName(collection);
+      final extensionName = '${collectionTypeName}${context.dtoName}Mapper';
+      final collectionType = '${collectionTypeName}<${context.dtoName}>';
+
+      buffer.writeln('extension $extensionName on $collectionType {');
+
+      if (context.enableToDomain) {
+        final domainCollectionType =
+            '${collectionTypeName}<${context.domainName}>';
+        buffer.writeln('  $domainCollectionType toDomain() {');
+        _generateCollectionConversion(buffer, collection, 'item.toDomain()');
+        buffer.writeln('  }');
+        buffer.writeln();
+      }
+
+      buffer.writeln('}');
+      buffer.writeln();
+      if (context.enableToData) {
+        final domainExtensionName =
+            '${collectionTypeName}${context.domainName}ToDataMapper';
+        final domainCollectionType =
+            '${collectionTypeName}<${context.domainName}>';
+
+        buffer.writeln(
+          'extension $domainExtensionName on $domainCollectionType {',
+        );
+
+        final dataCollectionType = '${collectionTypeName}<${context.dtoName}>';
+        buffer.writeln('  $dataCollectionType toData() {');
+        _generateCollectionConversion(buffer, collection, 'item.toData()');
+        buffer.writeln('  }');
+        buffer.writeln();
+
+        buffer.writeln('}');
+        buffer.writeln();
+      }
+    }
+  }
+
+  String _getCollectionTypeName(MapperCollection collection) {
+    switch (collection) {
+      case MapperCollection.list:
+        return 'List';
+      case MapperCollection.set:
+        return 'Set';
+      case MapperCollection.iterable:
+        return 'Iterable';
+    }
+  }
+
+  void _generateCollectionConversion(
+    StringBuffer buffer,
+    MapperCollection collection,
+    String itemConversion,
+  ) {
+    switch (collection) {
+      case MapperCollection.list:
+        buffer.writeln('    return map((item) => $itemConversion).toList();');
+        break;
+      case MapperCollection.set:
+        buffer.writeln('    return map((item) => $itemConversion).toSet();');
+        break;
+      case MapperCollection.iterable:
+        buffer.writeln('    return map((item) => $itemConversion);');
+        break;
+    }
   }
 }

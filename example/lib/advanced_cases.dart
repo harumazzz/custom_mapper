@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'advanced_cases.freezed.dart';
-part 'advanced_cases.map.dart';
+part 'advanced_cases.mapper.dart';
 
 @freezed
 sealed class Product with _$Product {

@@ -3,7 +3,7 @@ import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'json_models.freezed.dart';
 part 'json_models.g.dart';
-part 'json_models.map.dart';
+part 'json_models.mapper.dart';
 
 /// Base models that will be referenced from other files
 

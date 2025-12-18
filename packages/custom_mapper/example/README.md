@@ -38,7 +38,7 @@ This example demonstrates how to use the `custom_mapper` package to generate typ
 
 After running build_runner, you'll find:
 
-- `lib/models.map.dart` - Contains the generated mapping extensions
+- `lib/models.mapper.dart` - Contains the generated mapping extensions
 - Extension methods like `toDomain()` and `toData()` on your DTO classes
 - Automatic handling of type conversions (e.g., `DateTime` ↔ `String`, `List<String>` ↔ `String`)
 - Proper null safety and default value handling

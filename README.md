@@ -90,7 +90,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'my_file.freezed.dart';
-part 'my_file.map.dart';
+part 'my_file.mapper.dart';
 ```
 
 ## Creating Mappers
@@ -104,7 +104,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'user.freezed.dart';
-part 'user.map.dart';
+part 'user.mapper.dart';
 
 // Domain model
 @freezed
@@ -128,7 +128,7 @@ sealed class UserData with _$UserData {
 }
 ```
 
-This generates the following extensions in `user.map.dart`:
+This generates the following extensions in `user.mapper.dart`:
 
 ```dart
 extension UserDataMapper on UserData {

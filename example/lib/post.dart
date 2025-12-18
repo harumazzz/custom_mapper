@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'post.freezed.dart';
-part 'post.map.dart';
+part 'post.mapper.dart';
 
 @freezed
 sealed class Tag with _$Tag {

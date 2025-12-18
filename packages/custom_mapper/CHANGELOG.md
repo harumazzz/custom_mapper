@@ -1,3 +1,9 @@
+## 0.0.8
+
+### Add Collection support
+
+- **Add collection support**: Mapper now support generating extension method for Dart collections like Iterable, Set, List.
+
 ## 0.0.7
 
 ### Enhancements

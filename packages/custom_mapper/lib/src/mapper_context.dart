@@ -1,4 +1,5 @@
 import 'package:analyzer/dart/element/element2.dart';
+import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 class FieldAnnotationMetadata {
   final bool isIgnored;
@@ -15,6 +16,7 @@ class MapperContext {
   final Map<String, FieldAnnotationMetadata> fieldAnnotations;
   final bool enableToDomain;
   final bool enableToData;
+  final Set<MapperCollection> collections;
 
   MapperContext({
     required this.dtoElement,
@@ -24,5 +26,6 @@ class MapperContext {
     this.fieldAnnotations = const {},
     this.enableToDomain = true,
     this.enableToData = false,
+    this.collections = const {},
   });
 }

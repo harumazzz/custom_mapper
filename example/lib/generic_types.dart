@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
 
 part 'generic_types.freezed.dart';
-part 'generic_types.map.dart';
+part 'generic_types.mapper.dart';
 
 @freezed
 sealed class GenericContainer<T> with _$GenericContainer<T> {

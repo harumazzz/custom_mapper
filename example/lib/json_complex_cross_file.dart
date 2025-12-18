@@ -5,7 +5,7 @@ import 'json_cross_file_test.dart';
 
 part 'json_complex_cross_file.freezed.dart';
 part 'json_complex_cross_file.g.dart';
-part 'json_complex_cross_file.map.dart';
+part 'json_complex_cross_file.mapper.dart';
 
 /// Test case: Complex cross-file scenario with nested imports and JSON annotations
 

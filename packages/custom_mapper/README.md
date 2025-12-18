@@ -8,10 +8,10 @@ Add both packages to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  custom_mapper_annotation: ^0.0.1
+  custom_mapper_annotation: ^0.0.4
 
 dev_dependencies:
-  custom_mapper: ^0.0.1
+  custom_mapper: ^0.0.8
   build_runner: ^2.4.13
 ```
 

@@ -18,10 +18,10 @@ Add this package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  custom_mapper_annotation: ^0.0.2
+  custom_mapper_annotation: ^0.0.4
 
 dev_dependencies:
-  custom_mapper: ^0.0.2
+  custom_mapper: ^0.0.8
   build_runner: ^2.4.13
 ```
 
@@ -46,6 +46,7 @@ class UserDto {
 - `domain` (required): The domain type to map to/from
 - `toDomain` (optional): Generate method to convert to domain (default: `true`)
 - `toData` (optional): Generate method to convert from domain (default: `false`)
+- `collections` (optional): Generate collections mapper to domain and from domain.
 
 ### @IgnoreField
 
