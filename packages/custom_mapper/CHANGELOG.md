@@ -1,3 +1,9 @@
+## 0.0.9
+
+### Update README
+
+- **Update readme**: Include part 'mapper.dart' to generate.
+
 ## 0.0.8
 
 ### Add Collection support

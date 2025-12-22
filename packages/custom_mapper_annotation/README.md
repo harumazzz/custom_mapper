@@ -32,6 +32,8 @@ dev_dependencies:
 The main annotation that marks a class for mapper code generation.
 
 ```dart
+part 'user_dto.mapper.dart'; // For code generation
+
 @Mapper(domain: User, toDomain: true, toData: true)
 class UserDto {
   final String name;
@@ -53,6 +55,7 @@ class UserDto {
 Marks a field to be ignored during mapping operations.
 
 ```dart
+part 'user_dto.mapper.dart'; // For code generation
 class UserDto {
   final String name;
 
@@ -66,6 +69,8 @@ class UserDto {
 Provides a default value when the source field is null.
 
 ```dart
+part 'user_dto.mapper.dart'; // For code generation
+
 class UserDto {
   @DefaultIfNull('Unknown')
   final String name; // Uses 'Unknown' if source is null
@@ -79,6 +84,7 @@ class UserDto {
 
 ```dart
 import 'package:custom_mapper_annotation/custom_mapper_annotation.dart';
+part 'user.mapper.dart';
 
 // Domain model
 class User {
